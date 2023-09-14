@@ -1,0 +1,16 @@
+﻿<h2>Edit Role for @ViewBag.UserEmail</h2>
+
+<form asp-action="UpdateRole" method="post">
+    <input type="text" name="UserId" value="@ViewBag.UserId" readonly/>
+
+    <div>
+        <label for="Role">Select Role:</label>
+        <select name="Role">
+            <option value="Admins">Admins</option>
+            <option value="Users">Users</option>
+        </select>
+    </div>
+    <div>
+        <input type="submit" value="Update Role" />
+    </div>
+</form>

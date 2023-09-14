@@ -1,0 +1,41 @@
+﻿@using Newtonsoft.Json.Linq
+@model JArray
+
+<table id="usersTable">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Mail</th>
+            <th>Id</th>
+            <th>Rol</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user["givenName"]</td>
+                <td>@user["surname"]</td>
+                <td>@user["mail"]</td>
+                <td>@user["id"]</td>
+                <td>@user["rol"]</td>
+                <td>
+                    <a href="@Url.Action("EditRole", "Admin", new { id = user["id"].ToString() })" class="btn btn-primary">Edit</a>
+                </td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#usersTable').DataTable();
+        });
+    </script>
+}
+
