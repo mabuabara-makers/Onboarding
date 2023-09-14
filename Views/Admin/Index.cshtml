@@ -9,6 +9,7 @@
             <th>Mail</th>
             <th>Id</th>
             <th>Rol</th>
+            <th>Company</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -21,6 +22,7 @@
                 <td>@user["mail"]</td>
                 <td>@user["id"]</td>
                 <td>@user["rol"]</td>
+                <td>@user["extension_7dc3f134d37e4b7783ce99418e7cc703_Company"]</td>
                 <td>
                     <a href="@Url.Action("EditRole", "Admin", new { id = user["id"].ToString() })" class="btn btn-primary">Edit</a>
                 </td>
