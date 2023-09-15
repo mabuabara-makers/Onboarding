@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nunla\\RiderProjects\\Onboarding\\Onboarding.csproj": {}
+    "C:\\Users\\iamed\\Downloads\\Makers\\SURA\\RepositorioOnboarding\\Onboarding\\Onboarding.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nunla\\RiderProjects\\Onboarding\\Onboarding.csproj": {
+    "C:\\Users\\iamed\\Downloads\\Makers\\SURA\\RepositorioOnboarding\\Onboarding\\Onboarding.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nunla\\RiderProjects\\Onboarding\\Onboarding.csproj",
+        "projectUniqueName": "C:\\Users\\iamed\\Downloads\\Makers\\SURA\\RepositorioOnboarding\\Onboarding\\Onboarding.csproj",
         "projectName": "Onboarding",
-        "projectPath": "C:\\Users\\nunla\\RiderProjects\\Onboarding\\Onboarding.csproj",
-        "packagesPath": "C:\\Users\\nunla\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nunla\\RiderProjects\\Onboarding\\obj\\",
+        "projectPath": "C:\\Users\\iamed\\Downloads\\Makers\\SURA\\RepositorioOnboarding\\Onboarding\\Onboarding.csproj",
+        "packagesPath": "C:\\Users\\iamed\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\iamed\\Downloads\\Makers\\SURA\\RepositorioOnboarding\\Onboarding\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\nunla\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\iamed\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -77,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
