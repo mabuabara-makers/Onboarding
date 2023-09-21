@@ -147,4 +147,36 @@ public class GraphApiService
 
         return response.IsSuccessStatusCode;
     }
+
+    public async Task<bool> CreateUser(string email, string firstname, string surname, string company, string password, string role, string accessToken)
+    {
+
+        var client = new HttpClient();
+        var fullname = firstname + ' ' + surname;
+        var request = new HttpRequestMessage(HttpMethod.Post, "https://graph.microsoft.com/v1.0/users");
+        request.Headers.Add("Authorization", $"Bearer {accessToken}");
+        var content = new StringContent($"{{\r\n    \"accountEnabled\": true," +
+                                        $"\r\n    \"displayName\": \"{fullname}\"," +
+                                        $"\r\n    \"givenName\": \"{fullname}\"," +
+                                        $"\r\n    \"mail\": \"{email}\"," +
+                                        //$"\r\n    \"Apellidos\": \"{surname}\"," +
+                                        $"\r\n    \"extension_7dc3f134d37e4b7783ce99418e7cc703_Company\": \"{company}\"," +
+                                        $"\r\n    \"extension_7dc3f134d37e4b7783ce99418e7cc703_Roles\": \"{role}\"," +
+                                        $"\r\n    \"identities\": " +
+                                        $"[\r\n        {{\r\n            \"signInType\": \"emailAddress\"," +
+                                        $"\r\n            \"issuerAssignedId\": \"{email}\"," +
+                                        $"\r\n            \"issuer\": \"{_configuration["AzureAdB2C:Domain"]}\"\r\n        }}\r\n    ]," +
+                                        $"\r\n    \"passwordProfile\": " +
+                                        $"{{\r\n        \"password\": \"{password}\"," +
+                                        $"\r\n        \"forceChangePasswordNextSignIn\": false   \r\n    }}," +
+                                        $"\r\n    \"passwordPolicies\": \"DisablePasswordExpiration\"\r\n}}", null, "application/json");
+        request.Content = content;
+        var response = await client.SendAsync(request);
+        response.EnsureSuccessStatusCode();
+        Console.WriteLine(await response.Content.ReadAsStringAsync());
+
+        return response.IsSuccessStatusCode;
+
+    }
+
 }

@@ -61,5 +61,43 @@ namespace Onboarding.Controllers
             
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Signup(string email, string firstname, string surname, string password, string company)
+        {
+            var token = await _graphService.GetAccessToken();
+            var role = "4dd2caff-837c-400b-bde8-7d4812af5b84";
+
+            var isCreated = await _graphService.CreateUser(email, firstname, surname, company, password, role, token);
+
+            if (!isCreated)
+            {
+                return View("Error");
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> GetUser(string UserId, string Role)
+        {
+
+            var token = await _graphService.GetAccessToken();
+
+            var user = await _graphService.GetUserById(UserId, token);
+
+            /*
+            if (!isUpdated)
+            {
+                return View("Error");
+            }
+            */
+
+            return RedirectToAction("Claims");
+        }
+
     }
 }
