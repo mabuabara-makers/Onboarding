@@ -55,6 +55,21 @@ namespace Onboarding.Controllers
             }
             return View();
         }
+        [Authorize(Policy = "Admins")]
+        public IActionResult CreateUser()
+        {
+            /*
+            if (!User.Identity.IsAuthenticated)
+            {
+                //Obtener del claims el extension_Roles y mostrarlo en la vista
+                var roles = User.FindFirst("extension_Roles")?.Value;
+                var email = User.FindFirst("emails")?.Value;
+                ViewBag.Roles = roles;
+                ViewBag.Email = email;
+            }
+            */
+            return View();
+        }
 
         [AllowAnonymous]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
