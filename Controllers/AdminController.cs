@@ -63,10 +63,9 @@ namespace Onboarding.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Signup(string email, string firstname, string surname, string password, string company)
+        public async Task<IActionResult> Signup(string email, string firstname, string surname, string password, string company, string role)
         {
             var token = await _graphService.GetAccessToken();
-            var role = "4dd2caff-837c-400b-bde8-7d4812af5b84";
 
             var isCreated = await _graphService.CreateUser(email, firstname, surname, company, password, role, token);
 

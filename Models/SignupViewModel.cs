@@ -31,5 +31,9 @@ namespace Onboarding.Models
         [Required]
         [Display(Name = "Company")]
         public string Company { get; set; }
+
+        [Required]
+        [Display(Name = "Role")]
+        public string Role { get; set; }
     }
 }

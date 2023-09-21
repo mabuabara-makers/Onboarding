@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 public class GraphApiService
 {
@@ -154,6 +155,8 @@ public class GraphApiService
         var client = new HttpClient();
         var fullname = firstname + ' ' + surname;
         var request = new HttpRequestMessage(HttpMethod.Post, "https://graph.microsoft.com/v1.0/users");
+        var rolId = (role == "Admins") ? _configuration["Groups:Admins"] : _configuration["Groups:Users"];
+
         request.Headers.Add("Authorization", $"Bearer {accessToken}");
         var content = new StringContent($"{{\r\n    \"accountEnabled\": true," +
                                         $"\r\n    \"displayName\": \"{fullname}\"," +
@@ -161,7 +164,7 @@ public class GraphApiService
                                         $"\r\n    \"mail\": \"{email}\"," +
                                         //$"\r\n    \"Apellidos\": \"{surname}\"," +
                                         $"\r\n    \"extension_7dc3f134d37e4b7783ce99418e7cc703_Company\": \"{company}\"," +
-                                        $"\r\n    \"extension_7dc3f134d37e4b7783ce99418e7cc703_Roles\": \"{role}\"," +
+                                        $"\r\n    \"extension_7dc3f134d37e4b7783ce99418e7cc703_Roles\": \"{rolId}\"," +
                                         $"\r\n    \"identities\": " +
                                         $"[\r\n        {{\r\n            \"signInType\": \"emailAddress\"," +
                                         $"\r\n            \"issuerAssignedId\": \"{email}\"," +

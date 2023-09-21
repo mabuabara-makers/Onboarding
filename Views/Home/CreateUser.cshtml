@@ -44,6 +44,14 @@
         <span asp-validation-for="Company" class="text-danger"></span>
     </div>
 
+    <div class="form-group">
+        <label asp-for="Role">Grupo</label>
+        <select asp-for="Role" class="form-control">
+            <option value="Admins" selected>Admins</option>
+            <option value="Users">Users</option>
+        </select>
+    </div>
+
     <button type="submit" class="btn btn-primary">Sign Up</button>
 </form>
 
